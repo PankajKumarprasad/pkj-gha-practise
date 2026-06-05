@@ -17,7 +17,8 @@
 # ###########################################
 
 name: 01 - pkj flask CI wokflow
-on: push
+on: 
+    push:
 jobs:
     flask-ci-jobs:
         runs-on: ubuntu-latest
@@ -40,6 +41,6 @@ jobs:
             - name: smoke test
               run: |
                  sleep 5 # wait for the container to start
-                 curl -v http://localhost:5000/health
+                 curl  http://localhost:5000/health
 
         
