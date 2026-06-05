@@ -40,7 +40,7 @@ jobs:
 
             - name: smoke test
               run: |
-                 sleep 5 # wait for the container to start
+                 sleep 10 # wait for the container to start
                  curl  http://localhost:5000/health
 
         
