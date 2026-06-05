@@ -17,7 +17,7 @@
 # ###########################################
 
 name: 01 - pkj flask CI wokflow
-on: [push]
+on: push
 jobs:
     flask-ci-jobs:
         runs-on: ubuntu-latest
@@ -26,10 +26,10 @@ jobs:
               uses: actions/checkout@v6
 
             - name: build docker image
-              run: docker build -t pkj-flask-app:v1.0 .
+              run: docker build -t pankaj1204-flask-app:v1.0 -f 03-actions/Dockerfile 03-actions/
 
             - name: run container
-              run: docker run -d -p 5000:5000 -name pkj-flask-app pkj-flask-app:v1.0
+              run: docker run -d -p 5000:5000 --name pankaj1204-flask-app pankaj1204-flask-app:v1.0
 
             - name: smoke test
               run: |
