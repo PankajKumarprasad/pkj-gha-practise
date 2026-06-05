@@ -34,13 +34,17 @@ jobs:
 
             - name: check container status
               run: |
-                sleep 2
+                sleep 3
+                echo "=== Running Containers ==="
                 docker ps -a
-                docker logs pankaj1204-flask-app
+                echo "=== Container Logs ==="
+                docker logs pankaj1204-flask-app || echo "No logs"
+                echo "=== Testing from container ==="
+                docker exec pankaj1204-flask-app curl -s http://localhost:5000/health || echo "Failed from container"
 
             - name: smoke test
               run: |
                  sleep 10 # wait for the container to start
-                 curl  http://localhost:5000/health
+                 curl -v http://localhost:5000/health
 
         
