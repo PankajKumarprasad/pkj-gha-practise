@@ -17,7 +17,7 @@ jobs:
             - name: build and push docker image
               uses: docker/build-push-action@v6
               with:
-                context: .       #03-actions/
+                context: 03-actions/
                 push: true
                 tags: pankaj1204/pkj-flask-app:v1.0
 
@@ -37,4 +37,4 @@ jobs:
             - name: smoke test
               run: |
                  sleep 5 # wait for the container to start
-                 curl -v http://localhost:5000 || true   
+                 curl -v http://localhost:5000 
