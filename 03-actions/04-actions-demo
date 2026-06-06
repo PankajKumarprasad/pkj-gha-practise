@@ -1,4 +1,4 @@
-name: 01 - pkj flask CI wokflow
+name: 02 - pkj flask CI wokflow with Docker Hub
 on: 
     push:
 jobs:
