@@ -20,6 +20,16 @@ jobs:
                 context: 03-actions/
                 push: true
                 tags: pankaj1204/pkj-flask-app:v1.0
+            
+            - name : Check if image tag exists in Docker Hub
+              run: |
+                if curl -s https://hub.docker.com/v2/repositories/pankaj1204/pkj-flask-app/tags/v1.0/ | grep -q '"name": "v1.0"'; then
+                  echo "Image tag exists in Docker Hub"
+                else
+                  echo "Image tag does not exist in Docker Hub"
+                  exit 1
+                fi 
+
 
             - name: run container
               run: docker run -d -p 5000:5000 --name pkj-flask-app pankaj1204/pkj-flask-app:v1.0
